@@ -1,0 +1,39 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.2'
+	id 'io.spring.dependency-management' version '1.0.12.RELEASE'
+	id 'java'
+}
+
+group = 'ru.nexonmi'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = "16"
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+
+	//SpringBoot Web starter
+	implementation 'org.springframework.boot:spring-boot-starter-web:2.7.2'
+
+	//telegram api
+	implementation 'org.telegram:telegrambots-spring-boot-starter:6.1.0'
+//	implementation group: 'org.telegram', name: 'telegrambots', version: '6.1.0'
+
+	// gson
+	implementation 'com.google.code.gson:gson:2.9.0'
+
+	// tests
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
+	//Logger
+//	implementation 'org.slf4j:slf4j-api:1.7.30'
+//	implementation 'org.slf4j:slf4j-simple:1.7.30'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
