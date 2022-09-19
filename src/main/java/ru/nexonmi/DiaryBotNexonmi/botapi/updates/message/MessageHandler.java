@@ -31,6 +31,8 @@ public class MessageHandler {
                 new RegisterNewLessonHandler(messageService, repository));
         messageMap.put(messageService.getSourceText(MessageEnum.TIMETABLE_EDIT.commandCode),
                 new TimetableEditHandler(messageService, repository));
+        messageMap.put(messageService.getSourceText(MessageEnum.TIMETABLE_ALL.commandCode),
+                new TimetableAllHandler(messageService, repository));
     }
 
 

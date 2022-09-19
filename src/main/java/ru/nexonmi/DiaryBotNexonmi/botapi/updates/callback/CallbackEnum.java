@@ -1,7 +1,8 @@
 package ru.nexonmi.DiaryBotNexonmi.botapi.updates.callback;
 
-enum CallbackEnum {
+public enum CallbackEnum {
 
+    //TODO make all callback buttons use this variables not straight str
     ADD_LESSON_TO_TIMETABLE_CHOSE_DAY("command.callback.add_lesson_to_timetable_chose_day", "oops"),
     ADD_LESSON_TO_DAY_CHOOSE_LESSON("command.callback.add_lesson_to_day_chose_lesson", "oops"),
     ADD_LESSON_TO_DAY("command.callback.add_lesson_to_day_add_lesson", "oops"),
