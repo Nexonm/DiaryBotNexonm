@@ -45,7 +45,7 @@ public class TimetableEditHandler extends InputCallbackHandler implements GetUse
     private MyInlineKeyboardButton[][] makeKeyboard() {
         return new MyInlineKeyboardButton[][]{
                 {
-                        new MyInlineKeyboardButton(messageService.getSourceText("replay.timetable_edit.btn_add_lesson_to_timetable"),
+                        new MyInlineKeyboardButton(messageService.getSourceText("btn.add_lesson_to_timetable.title"),
                                 messageService.getSourceText("command.callback.add_lesson_to_timetable_chose_day"))
                 },
                 {

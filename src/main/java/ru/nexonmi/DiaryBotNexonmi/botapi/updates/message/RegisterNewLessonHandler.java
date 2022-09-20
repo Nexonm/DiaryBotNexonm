@@ -30,18 +30,18 @@ class RegisterNewLessonHandler extends InputMessageHandler implements GetUserInt
             user.getDiary().registerLesson(newLessonName);
         } catch (LessonAlreadyExistsException e) {
             return messageService.getReplyMessage(message.getChatId(),
-                    messageService.getSourceText("replay.register_new_lesson_error_already_exists_beginning").concat(
+                    messageService.getSourceText("replay.message.register_new_lesson_error_already_exists_beginning").concat(
                             newLessonName).concat(" ").concat(
-                            messageService.getSourceText("replay.register_new_lesson_error_already_exists_end")));
+                            messageService.getSourceText("replay.message.register_new_lesson_error_already_exists_end")));
         } catch (Exception e) {
             return messageService.getReplyMessage(message.getChatId(),
-                    messageService.getSourceText("replay.register_new_lesson_error") + " error:" + e.getMessage());
+                    messageService.getSourceText("replay.message.register_new_lesson_error") + " error:" + e.getMessage());
         }
         save(user);
         return messageService.getReplyMessage(message.getChatId(),
-                messageService.getSourceText("replay.register_new_lesson_ok_beginning").concat(
+                messageService.getSourceText("replay.message.register_new_lesson_ok_beginning").concat(
                         newLessonName).concat(" ").concat(
-                        messageService.getSourceText("replay.register_new_lesson_ok_end")));
+                        messageService.getSourceText("replay.message.register_new_lesson_ok_end")));
 
     }
 
