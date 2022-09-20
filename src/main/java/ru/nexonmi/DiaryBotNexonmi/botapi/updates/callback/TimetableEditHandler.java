@@ -2,14 +2,11 @@ package ru.nexonmi.DiaryBotNexonmi.botapi.updates.callback;
 
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import ru.nexonmi.DiaryBotNexonmi.botapi.service.GetUserInterface;
 import ru.nexonmi.DiaryBotNexonmi.botapi.service.MessageService;
 import ru.nexonmi.DiaryBotNexonmi.botapi.service.MyInlineKeyboardButton;
 import ru.nexonmi.DiaryBotNexonmi.data.repository.DataRepository;
-import ru.nexonmi.DiaryBotNexonmi.domain.entity.DayEntity;
-import ru.nexonmi.DiaryBotNexonmi.domain.entity.UserEntity;
 
-public class TimetableEditHandler extends InputCallbackHandler implements GetUserInterface {
+public class TimetableEditHandler extends InputCallbackHandler {
 
     public TimetableEditHandler(MessageService messageService, DataRepository repository) {
         super(messageService, repository);
@@ -17,27 +14,17 @@ public class TimetableEditHandler extends InputCallbackHandler implements GetUse
 
     @Override
     protected BotApiMethod<?> handleCallback(Update update) {
-        try{
-            UserEntity user = get(update.getCallbackQuery().getMessage().getChatId());
-            StringBuilder ansStrBuilder = new StringBuilder();
-            ansStrBuilder.append(messageService.getSourceText(CallbackEnum.TIMETABLE_EDIT.replayCode));
-            for (DayEntity day : user.getDiary().getDays()) {
-                ansStrBuilder.append(messageService.getRussianStringDay(day.getDayOfWeek().getDayNum()))
-                        .append(":\n");
-                for (int lessonId : day.getLessonIDs())
-                    ansStrBuilder.append(user.getDiary().getUserLessons().get(lessonId).getName()).append("\n");
+        try {
 
-                ansStrBuilder.append("\n");
-            }
-
+            //main idea is just to set new buttons in message
             return messageService.getEditMessage(
                     update.getCallbackQuery().getMessage().getChatId(),
                     update.getCallbackQuery().getMessage().getMessageId(),
-                    ansStrBuilder.toString(),
+                    update.getCallbackQuery().getMessage().getText(),
                     messageService.getReplayKeyboardInMessage(makeKeyboard())
             );
 
-        }catch (Exception e){
+        } catch (Exception e) {
             return messageService.getReplyMessage(update.getCallbackQuery().getMessage().getChatId(), "replay.some_error");
         }
     }
@@ -54,9 +41,4 @@ public class TimetableEditHandler extends InputCallbackHandler implements GetUse
         };
     }
 
-
-    @Override
-    public UserEntity get(long chat_id) {
-        return repository.get(chat_id);
-    }
 }
