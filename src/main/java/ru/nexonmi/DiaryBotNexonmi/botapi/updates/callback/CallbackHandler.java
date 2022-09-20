@@ -31,6 +31,8 @@ public class CallbackHandler {
                 new AddLessonToDayAddLessonHandler(messageService, repository));
         callbackMap.put(messageService.getSourceText(CallbackEnum.SHOW_ALL_TIMETABLE.commandCode),
                 new ShowAllTimetableHandler(messageService, repository));
+        callbackMap.put(messageService.getSourceText(CallbackEnum.TIMETABLE_EDIT.commandCode),
+                new TimetableEditHandler(messageService, repository));
     }
 
     public BotApiMethod<?> handleUpdate(Update update){

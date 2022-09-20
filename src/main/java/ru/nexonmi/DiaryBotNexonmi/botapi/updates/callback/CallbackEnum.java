@@ -6,7 +6,8 @@ public enum CallbackEnum {
     ADD_LESSON_TO_TIMETABLE_CHOSE_DAY("command.callback.add_lesson_to_timetable_chose_day", "oops"),
     ADD_LESSON_TO_DAY_CHOOSE_LESSON("command.callback.add_lesson_to_day_chose_lesson", "oops"),
     ADD_LESSON_TO_DAY("command.callback.add_lesson_to_day_add_lesson", "oops"),
-    SHOW_ALL_TIMETABLE("command.callback.show_all_timetable", "replay.callback.show_all_message_title");
+    SHOW_ALL_TIMETABLE("command.callback.show_all_timetable", "replay.callback.show_all_message_title"),
+    TIMETABLE_EDIT("command.callback.timetable_edit", "replay.callback.timetable_edit");
 
     String commandCode;
     String replayCode;

@@ -18,42 +18,41 @@ public class TimetableAllHandler extends InputMessageHandler implements GetUserI
 
     @Override
     protected SendMessage handleMessage(Message message) {
-        try{
+        try {
             UserEntity user = get(message.getChatId());
             StringBuilder ansStrBuilder = new StringBuilder();
             ansStrBuilder.append(messageService.getSourceText(MessageEnum.TIMETABLE_ALL.replayCode));
             for (DayEntity day : user.getDiary().getDays()) {
                 ansStrBuilder.append(messageService.getRussianStringDay(day.getDayOfWeek().getDayNum()))
                         .append(":\n");
-                if(day.getLessonIDs().size()==0)
+                if (day.getLessonIDs().size() == 0)
                     ansStrBuilder.append(messageService.getSourceText("replay.message.timetable_all.no_lessons")).append("\n");
-                    else
-                for (int lessonId : day.getLessonIDs())
-                    ansStrBuilder.append(user.getDiary().getUserLessons().get(lessonId).getName()).append("\n");
+                else
+                    for (int lessonId : day.getLessonIDs())
+                        ansStrBuilder.append(user.getDiary().getUserLessons().get(lessonId).getName()).append("\n");
 
                 ansStrBuilder.append("\n");
             }
 
-            return messageService.getReplyMessage(message.getChatId(), ansStrBuilder.toString());
-            //in case add some ReplayKeyboard
-//            return sendMessage;
-        }catch (Exception e){
+            SendMessage sendMessage = messageService.getReplyMessage(message.getChatId(), ansStrBuilder.toString());
+            sendMessage.setReplyMarkup(messageService.getReplayKeyboardInMessage(makeKeyboard()));
+            return sendMessage;
+        } catch (Exception e) {
             return messageService.getReplyMessage(message.getChatId(), messageService.getSourceText("replay.some_error"));
         }
     }
 
     //TODO create callback.EditTimetable and make button for it
-//    private MyInlineKeyboardButton[][] makeKeyboard(){
-//        return new MyInlineKeyboardButton[][]{
-//            {new MyInlineKeyboardButton(Callback)}
-//        };
-//    }
+    private MyInlineKeyboardButton[][] makeKeyboard() {
+        return new MyInlineKeyboardButton[][]{
+                {new MyInlineKeyboardButton(messageService.getSourceText("btn.timetable_edit.title"),
+                        messageService.getSourceText("command.callback.timetable_edit"))}
+        };
+    }
 
     @Override
     public UserEntity get(long chat_id) {
         return repository.get(chat_id);
     }
-
-
 
 }
