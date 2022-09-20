@@ -28,7 +28,7 @@ class TimetableEditHandler extends InputMessageHandler implements GetUserInterfa
             StringBuilder ansStrBuilder = new StringBuilder();
             ansStrBuilder.append(messageService.getSourceText(MessageEnum.TIMETABLE_EDIT.replayCode));
             for (DayEntity day : user.getDiary().getDays()) {
-                ansStrBuilder.append(getRussianStringDay(day.getDayOfWeek().getDayNum()))
+                ansStrBuilder.append(messageService.getRussianStringDay(day.getDayOfWeek().getDayNum()))
                         .append(":\n");
                 for (int lessonId : day.getLessonIDs())
                     ansStrBuilder.append(user.getDiary().getUserLessons().get(lessonId).getName()).append("\n");
@@ -51,21 +51,10 @@ class TimetableEditHandler extends InputMessageHandler implements GetUserInterfa
                                 messageService.getSourceText("command.callback.add_lesson_to_timetable_chose_day"))
                 },
                 {
-                        new MyInlineKeyboardButton("Удалить урок из расписания", "/delete_lesson_from_timetable")
+                        new MyInlineKeyboardButton(messageService.getSourceText("replay.callback.btn.delete_lesson_from_timetable"),
+                                "/delete_lesson_from_timetable")
                 }
         };
     }
 
-    private String getRussianStringDay(int day) {
-        return switch (day) {
-            case 1 -> "Понедельник";
-            case 2 -> "Вторник";
-            case 3 -> "Среда";
-            case 4 -> "Четверг";
-            case 5 -> "Пятница";
-            case 6 -> "Суббота";
-            case 7 -> "Воскресенье";
-            default -> "Неизвестный день";
-        };
-    }
 }
