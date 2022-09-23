@@ -23,11 +23,11 @@ public class CallbackHandler {
     }
 
     private void initMap(){
-        callbackMap.put(messageService.getSourceText(CallbackEnum.ADD_LESSON_TO_TIMETABLE_CHOSE_DAY.commandCode),
+        callbackMap.put(messageService.getSourceText(CallbackEnum.ADD_LESSON_TO_TIMETABLE_CHOOSE_DAY.commandCode),
                 new AddLessonToTimetableChooseDayHandler(messageService, repository));
         callbackMap.put(messageService.getSourceText(CallbackEnum.ADD_LESSON_TO_DAY_CHOOSE_LESSON.commandCode),
                 new AddLessonToDayChooseLessonHandler(messageService, repository));
-        callbackMap.put(messageService.getSourceText(CallbackEnum.ADD_LESSON_TO_DAY.commandCode),
+        callbackMap.put(messageService.getSourceText(CallbackEnum.ADD_LESSON_TO_DAY_ADD_LESSON.commandCode),
                 new AddLessonToDayAddLessonHandler(messageService, repository));
         callbackMap.put(messageService.getSourceText(CallbackEnum.SHOW_ALL_TIMETABLE.commandCode),
                 new ShowAllTimetableHandler(messageService, repository));

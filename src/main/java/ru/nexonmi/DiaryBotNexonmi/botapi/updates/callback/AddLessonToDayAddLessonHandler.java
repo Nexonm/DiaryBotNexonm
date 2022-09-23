@@ -43,22 +43,22 @@ class AddLessonToDayAddLessonHandler extends InputCallbackHandler implements Get
                     messageService.getReplayKeyboardInMessage(makeKeyboard(day))
             );
         } catch (Exception e) {
-            return messageService.getReplyMessage(chat_id, "replay.some_error");
+            return messageService.getReplyMessage(chat_id, messageService.getSourceText("replay.some_error"));
         }
     }
 
     public MyInlineKeyboardButton[][] makeKeyboard(int day){
         //if user press this button he just chooses another one lesson
         return new MyInlineKeyboardButton[][] {{
-            new MyInlineKeyboardButton(messageService.getSourceText("replay.callback.btn.add_more_lessons"),
-                    messageService.getSourceText("command.callback.add_lesson_to_day_choose_lesson")+
+            new MyInlineKeyboardButton(messageService.getSourceText(CallbackButtonEnum.ADD_LESSON_TO_DAY_CHOOSE_LESSON.title),
+                    messageService.getSourceText(CallbackButtonEnum.ADD_LESSON_TO_DAY_CHOOSE_LESSON.callbackAction.commandCode)+
                     AddLessonToDayChooseLessonHandler.packDayData(day))
         },{
-            new MyInlineKeyboardButton(messageService.getSourceText("replay.callback.btn.choose_another_day"),
-                    messageService.getSourceText("command.callback.add_lesson_to_timetable_choose_day"))
+            new MyInlineKeyboardButton(messageService.getSourceText(CallbackButtonEnum.ADD_LESSON_TO_TIMETABLE_CHOOSE_DAY_ANOTHER.title),
+                    messageService.getSourceText(CallbackButtonEnum.ADD_LESSON_TO_TIMETABLE_CHOOSE_DAY_ANOTHER.callbackAction.commandCode))
         },{
-            new MyInlineKeyboardButton(messageService.getSourceText("replay.callback.btn.show_all_timetable"),
-                    messageService.getSourceText("command.callback.show_all_timetable"))
+            new MyInlineKeyboardButton(messageService.getSourceText(CallbackButtonEnum.SHOW_ALL_TIMETABLE.title),
+                    messageService.getSourceText(CallbackButtonEnum.SHOW_ALL_TIMETABLE.callbackAction.commandCode))
         }};
     }
 

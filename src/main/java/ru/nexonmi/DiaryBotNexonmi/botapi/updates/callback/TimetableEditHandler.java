@@ -33,12 +33,12 @@ public class TimetableEditHandler extends InputCallbackHandler {
         //TODO make next step of lesson deletion
         return new MyInlineKeyboardButton[][]{
                 {
-                        new MyInlineKeyboardButton(messageService.getSourceText("btn.add_lesson_to_timetable.title"),
-                                messageService.getSourceText("command.callback.add_lesson_to_timetable_choose_day"))
+                        new MyInlineKeyboardButton(messageService.getSourceText(CallbackButtonEnum.ADD_LESSON_TO_TIMETABLE_CHOOSE_DAY.title),
+                                messageService.getSourceText(CallbackButtonEnum.ADD_LESSON_TO_TIMETABLE_CHOOSE_DAY.callbackAction.commandCode))
                 },
                 {
-                        new MyInlineKeyboardButton("Удалить урок из расписания",
-                                messageService.getSourceText(CallbackEnum.DELETE_LESSON_CHOOSE_DAY.commandCode))
+                        new MyInlineKeyboardButton(messageService.getSourceText(CallbackButtonEnum.DELETE_LESSON_CHOOSE_DAY.title),
+                                messageService.getSourceText(CallbackButtonEnum.DELETE_LESSON_CHOOSE_DAY.callbackAction.commandCode))
                 }
         };
     }

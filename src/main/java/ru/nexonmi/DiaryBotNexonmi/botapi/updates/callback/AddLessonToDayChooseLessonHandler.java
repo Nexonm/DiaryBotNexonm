@@ -65,9 +65,10 @@ class AddLessonToDayChooseLessonHandler extends InputCallbackHandler implements 
         for (int i = 0; i < arr.length; i++) {
 //            System.out.println("Add lesson: "+lessons[i].getName());
             arr[i][0] = new MyInlineKeyboardButton(lessons[i].getName(),
-                    messageService.getSourceText("command.callback.add_lesson_to_day_add_lesson") +
+                    messageService.getSourceText(CallbackButtonEnum.ADD_LESSON_TO_DAY_ADD_LESSON.callbackAction.commandCode) +
                             AddLessonToDayAddLessonHandler.packLessonToAddData(day, lessons[i].getID()));
         }
+        //TODO add "cancel" button (create new handler class that will edit message
         return arr;
     }
 
