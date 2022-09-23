@@ -33,6 +33,8 @@ public class CallbackHandler {
                 new ShowAllTimetableHandler(messageService, repository));
         callbackMap.put(messageService.getSourceText(CallbackEnum.TIMETABLE_EDIT.commandCode),
                 new TimetableEditHandler(messageService, repository));
+        callbackMap.put(messageService.getSourceText(CallbackEnum.DELETE_LESSON_CHOOSE_DAY.commandCode),
+                new DeleteLessonChooseDayHandler(messageService, repository));
     }
 
     public BotApiMethod<?> handleUpdate(Update update){
