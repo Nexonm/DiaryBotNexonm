@@ -12,11 +12,11 @@ import ru.nexonmi.DiaryBotNexonmi.data.repository.DataRepository;
 import ru.nexonmi.DiaryBotNexonmi.domain.entity.LessonEntity;
 import ru.nexonmi.DiaryBotNexonmi.domain.entity.UserEntity;
 
-class AddLessonToDayChoseLessonHandler extends InputCallbackHandler implements GetUserInterface {
+class AddLessonToDayChooseLessonHandler extends InputCallbackHandler implements GetUserInterface {
 
     private final static String DAY_STARTS = "Day:";
 
-    public AddLessonToDayChoseLessonHandler(MessageService messageService, DataRepository repository) {
+    public AddLessonToDayChooseLessonHandler(MessageService messageService, DataRepository repository) {
         super(messageService, repository);
     }
 

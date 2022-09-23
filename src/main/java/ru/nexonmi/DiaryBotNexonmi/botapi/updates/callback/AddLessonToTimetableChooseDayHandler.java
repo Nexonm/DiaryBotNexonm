@@ -7,9 +7,9 @@ import ru.nexonmi.DiaryBotNexonmi.botapi.service.MessageService;
 import ru.nexonmi.DiaryBotNexonmi.botapi.updates.service.MyInlineKeyboardButton;
 import ru.nexonmi.DiaryBotNexonmi.data.repository.DataRepository;
 
-class AddLessonToTimetableChoseDayHandler extends InputCallbackHandler {
+class AddLessonToTimetableChooseDayHandler extends InputCallbackHandler {
 
-    public AddLessonToTimetableChoseDayHandler(MessageService messageService, DataRepository repository) {
+    public AddLessonToTimetableChooseDayHandler(MessageService messageService, DataRepository repository) {
         super(messageService, repository);
     }
 
@@ -28,28 +28,28 @@ class AddLessonToTimetableChoseDayHandler extends InputCallbackHandler {
         return new MyInlineKeyboardButton[][]{
                 {
                         new MyInlineKeyboardButton(messageService.getRussianStringDay(1),
-                                messageService.getSourceText("command.callback.add_lesson_to_day_chose_lesson")
-                                + AddLessonToDayChoseLessonHandler.packDayData(1)),
+                                messageService.getSourceText("command.callback.add_lesson_to_day_choose_lesson")
+                                + AddLessonToDayChooseLessonHandler.packDayData(1)),
                         new MyInlineKeyboardButton(messageService.getRussianStringDay(2),
-                                messageService.getSourceText("command.callback.add_lesson_to_day_chose_lesson")
-                                + AddLessonToDayChoseLessonHandler.packDayData(2)),
+                                messageService.getSourceText("command.callback.add_lesson_to_day_choose_lesson")
+                                + AddLessonToDayChooseLessonHandler.packDayData(2)),
                         new MyInlineKeyboardButton(messageService.getRussianStringDay(3),
-                                messageService.getSourceText("command.callback.add_lesson_to_day_chose_lesson")
-                                + AddLessonToDayChoseLessonHandler.packDayData(3))
+                                messageService.getSourceText("command.callback.add_lesson_to_day_choose_lesson")
+                                + AddLessonToDayChooseLessonHandler.packDayData(3))
                 },
                 {
                         new MyInlineKeyboardButton(messageService.getRussianStringDay(4),
-                                messageService.getSourceText("command.callback.add_lesson_to_day_chose_lesson")
-                                + AddLessonToDayChoseLessonHandler.packDayData(4)),
+                                messageService.getSourceText("command.callback.add_lesson_to_day_choose_lesson")
+                                + AddLessonToDayChooseLessonHandler.packDayData(4)),
                         new MyInlineKeyboardButton(messageService.getRussianStringDay(5),
-                                messageService.getSourceText("command.callback.add_lesson_to_day_chose_lesson")
-                                + AddLessonToDayChoseLessonHandler.packDayData(5)),
+                                messageService.getSourceText("command.callback.add_lesson_to_day_choose_lesson")
+                                + AddLessonToDayChooseLessonHandler.packDayData(5)),
                         new MyInlineKeyboardButton(messageService.getRussianStringDay(6),
-                                messageService.getSourceText("command.callback.add_lesson_to_day_chose_lesson")
-                                + AddLessonToDayChoseLessonHandler.packDayData(6)),
+                                messageService.getSourceText("command.callback.add_lesson_to_day_choose_lesson")
+                                + AddLessonToDayChooseLessonHandler.packDayData(6)),
                         new MyInlineKeyboardButton(messageService.getRussianStringDay(7),
-                                messageService.getSourceText("command.callback.add_lesson_to_day_chose_lesson")
-                                + AddLessonToDayChoseLessonHandler.packDayData(7)),
+                                messageService.getSourceText("command.callback.add_lesson_to_day_choose_lesson")
+                                + AddLessonToDayChooseLessonHandler.packDayData(7)),
                 }
         };
     }

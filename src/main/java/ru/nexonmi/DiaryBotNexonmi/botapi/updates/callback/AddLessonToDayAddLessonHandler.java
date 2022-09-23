@@ -51,11 +51,11 @@ class AddLessonToDayAddLessonHandler extends InputCallbackHandler implements Get
         //if user press this button he just chooses another one lesson
         return new MyInlineKeyboardButton[][] {{
             new MyInlineKeyboardButton(messageService.getSourceText("replay.callback.btn.add_more_lessons"),
-                    messageService.getSourceText("command.callback.add_lesson_to_day_chose_lesson")+
-                    AddLessonToDayChoseLessonHandler.packDayData(day))
+                    messageService.getSourceText("command.callback.add_lesson_to_day_choose_lesson")+
+                    AddLessonToDayChooseLessonHandler.packDayData(day))
         },{
             new MyInlineKeyboardButton(messageService.getSourceText("replay.callback.btn.choose_another_day"),
-                    messageService.getSourceText("command.callback.add_lesson_to_timetable_chose_day"))
+                    messageService.getSourceText("command.callback.add_lesson_to_timetable_choose_day"))
         },{
             new MyInlineKeyboardButton(messageService.getSourceText("replay.callback.btn.show_all_timetable"),
                     messageService.getSourceText("command.callback.show_all_timetable"))

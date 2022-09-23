@@ -48,7 +48,7 @@ class TimetableEditHandler extends InputMessageHandler implements GetUserInterfa
         return new MyInlineKeyboardButton[][]{
                 {
                         new MyInlineKeyboardButton(messageService.getSourceText("btn.add_lesson_to_timetable.title"),
-                                messageService.getSourceText("command.callback.add_lesson_to_timetable_chose_day"))
+                                messageService.getSourceText("command.callback.add_lesson_to_timetable_choose_day"))
                 },
                 {
                         new MyInlineKeyboardButton(messageService.getSourceText("replay.callback.btn.delete_lesson_from_timetable"),

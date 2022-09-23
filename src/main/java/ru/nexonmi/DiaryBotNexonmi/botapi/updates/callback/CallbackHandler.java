@@ -24,9 +24,9 @@ public class CallbackHandler {
 
     private void initMap(){
         callbackMap.put(messageService.getSourceText(CallbackEnum.ADD_LESSON_TO_TIMETABLE_CHOSE_DAY.commandCode),
-                new AddLessonToTimetableChoseDayHandler(messageService, repository));
+                new AddLessonToTimetableChooseDayHandler(messageService, repository));
         callbackMap.put(messageService.getSourceText(CallbackEnum.ADD_LESSON_TO_DAY_CHOOSE_LESSON.commandCode),
-                new AddLessonToDayChoseLessonHandler(messageService, repository));
+                new AddLessonToDayChooseLessonHandler(messageService, repository));
         callbackMap.put(messageService.getSourceText(CallbackEnum.ADD_LESSON_TO_DAY.commandCode),
                 new AddLessonToDayAddLessonHandler(messageService, repository));
         callbackMap.put(messageService.getSourceText(CallbackEnum.SHOW_ALL_TIMETABLE.commandCode),
