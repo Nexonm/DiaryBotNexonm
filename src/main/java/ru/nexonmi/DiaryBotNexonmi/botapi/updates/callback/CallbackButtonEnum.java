@@ -2,7 +2,7 @@ package ru.nexonmi.DiaryBotNexonmi.botapi.updates.callback;
 
 public enum CallbackButtonEnum {
 
-    ADD_LESSON_TO_TIMETABLE_CHOOSE_DAY("btn.add_lesson_to_timetable.title", CallbackEnum.ADD_LESSON_TO_DAY_CHOOSE_LESSON),
+    ADD_LESSON_TO_TIMETABLE_CHOOSE_DAY("btn.add_lesson_to_timetable.title", CallbackEnum.ADD_LESSON_TO_TIMETABLE_CHOOSE_DAY),
     ADD_LESSON_TO_TIMETABLE_CHOOSE_DAY_ANOTHER("replay.callback.btn.choose_another_day", CallbackEnum.ADD_LESSON_TO_TIMETABLE_CHOOSE_DAY),
     ADD_LESSON_TO_DAY_ADD_LESSON("null", CallbackEnum.ADD_LESSON_TO_DAY_ADD_LESSON),
     ADD_LESSON_TO_DAY_CHOOSE_LESSON("replay.callback.btn.add_more_lessons", CallbackEnum.ADD_LESSON_TO_DAY_CHOOSE_LESSON),

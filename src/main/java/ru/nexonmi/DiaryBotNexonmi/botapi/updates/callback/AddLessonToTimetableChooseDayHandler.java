@@ -30,27 +30,27 @@ class AddLessonToTimetableChooseDayHandler extends InputCallbackHandler {
         return new MyInlineKeyboardButton[][]{
                 {
                         new MyInlineKeyboardButton(messageService.getRussianStringDay(DayOfWeek.MONDAY.getValue()),
-                                messageService.getSourceText(CallbackButtonEnum.ADD_LESSON_TO_TIMETABLE_CHOOSE_DAY.callbackAction.commandCode)
+                                messageService.getSourceText(CallbackButtonEnum.ADD_LESSON_TO_DAY_CHOOSE_LESSON.callbackAction.commandCode)
                                 + AddLessonToDayChooseLessonHandler.packDayData(DayOfWeek.MONDAY.getValue())),
                         new MyInlineKeyboardButton(messageService.getRussianStringDay(DayOfWeek.TUESDAY.getValue()),
-                                messageService.getSourceText(CallbackButtonEnum.ADD_LESSON_TO_TIMETABLE_CHOOSE_DAY.callbackAction.commandCode)
+                                messageService.getSourceText(CallbackButtonEnum.ADD_LESSON_TO_DAY_CHOOSE_LESSON.callbackAction.commandCode)
                                 + AddLessonToDayChooseLessonHandler.packDayData(DayOfWeek.TUESDAY.getValue())),
                         new MyInlineKeyboardButton(messageService.getRussianStringDay(DayOfWeek.WEDNESDAY.getValue()),
-                                messageService.getSourceText(CallbackButtonEnum.ADD_LESSON_TO_TIMETABLE_CHOOSE_DAY.callbackAction.commandCode)
+                                messageService.getSourceText(CallbackButtonEnum.ADD_LESSON_TO_DAY_CHOOSE_LESSON.callbackAction.commandCode)
                                 + AddLessonToDayChooseLessonHandler.packDayData(DayOfWeek.WEDNESDAY.getValue()))
                 },
                 {
                         new MyInlineKeyboardButton(messageService.getRussianStringDay(DayOfWeek.THURSDAY.getValue()),
-                                messageService.getSourceText(CallbackButtonEnum.ADD_LESSON_TO_TIMETABLE_CHOOSE_DAY.callbackAction.commandCode)
+                                messageService.getSourceText(CallbackButtonEnum.ADD_LESSON_TO_DAY_CHOOSE_LESSON.callbackAction.commandCode)
                                 + AddLessonToDayChooseLessonHandler.packDayData(DayOfWeek.THURSDAY.getValue())),
                         new MyInlineKeyboardButton(messageService.getRussianStringDay(DayOfWeek.FRIDAY.getValue()),
-                                messageService.getSourceText(CallbackButtonEnum.ADD_LESSON_TO_TIMETABLE_CHOOSE_DAY.callbackAction.commandCode)
+                                messageService.getSourceText(CallbackButtonEnum.ADD_LESSON_TO_DAY_CHOOSE_LESSON.callbackAction.commandCode)
                                 + AddLessonToDayChooseLessonHandler.packDayData(DayOfWeek.FRIDAY.getValue())),
                         new MyInlineKeyboardButton(messageService.getRussianStringDay(DayOfWeek.SATURDAY.getValue()),
-                                messageService.getSourceText(CallbackButtonEnum.ADD_LESSON_TO_TIMETABLE_CHOOSE_DAY.callbackAction.commandCode)
+                                messageService.getSourceText(CallbackButtonEnum.ADD_LESSON_TO_DAY_CHOOSE_LESSON.callbackAction.commandCode)
                                 + AddLessonToDayChooseLessonHandler.packDayData(DayOfWeek.SATURDAY.getValue())),
                         new MyInlineKeyboardButton(messageService.getRussianStringDay(DayOfWeek.SUNDAY.getValue()),
-                                messageService.getSourceText(CallbackButtonEnum.ADD_LESSON_TO_TIMETABLE_CHOOSE_DAY.callbackAction.commandCode)
+                                messageService.getSourceText(CallbackButtonEnum.ADD_LESSON_TO_DAY_CHOOSE_LESSON.callbackAction.commandCode)
                                 + AddLessonToDayChooseLessonHandler.packDayData(DayOfWeek.SUNDAY.getValue())),
                 }
         };
