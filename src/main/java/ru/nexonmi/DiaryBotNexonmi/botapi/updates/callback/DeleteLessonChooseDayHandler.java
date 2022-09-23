@@ -32,34 +32,34 @@ public class DeleteLessonChooseDayHandler extends InputCallbackHandler implement
         return new MyInlineKeyboardButton[][]{
                 {
                         new MyInlineKeyboardButton(messageService.getRussianStringDay(DayOfWeek.MONDAY.getValue()),
-                                messageService.getSourceText(CallbackButtonEnum.DELETE_LESSON_CHOOSE_LESSON.callbackAction.replayCode)
-//                                        + AddLessonToDayChoseLessonHandler.packDayData(1)
+                                messageService.getSourceText(CallbackButtonEnum.DELETE_LESSON_CHOOSE_LESSON.callbackAction.commandCode)
+                                        + DeleteLessonChooseLesson.packDayData(DayOfWeek.MONDAY.getValue())
                         ),
                         new MyInlineKeyboardButton(messageService.getRussianStringDay(DayOfWeek.TUESDAY.getValue()),
-                                messageService.getSourceText(CallbackButtonEnum.DELETE_LESSON_CHOOSE_LESSON.callbackAction.replayCode)
-//                                        + AddLessonToDayChoseLessonHandler.packDayData(2)
+                                messageService.getSourceText(CallbackButtonEnum.DELETE_LESSON_CHOOSE_LESSON.callbackAction.commandCode)
+                                        + DeleteLessonChooseLesson.packDayData(DayOfWeek.TUESDAY.getValue())
                         ),
                         new MyInlineKeyboardButton(messageService.getRussianStringDay(DayOfWeek.WEDNESDAY.getValue()),
-                                messageService.getSourceText(CallbackButtonEnum.DELETE_LESSON_CHOOSE_LESSON.callbackAction.replayCode)
-//                                        + AddLessonToDayChoseLessonHandler.packDayData(3)
+                                messageService.getSourceText(CallbackButtonEnum.DELETE_LESSON_CHOOSE_LESSON.callbackAction.commandCode)
+                                        + DeleteLessonChooseLesson.packDayData(DayOfWeek.WEDNESDAY.getValue())
                         )
                 },
                 {
                         new MyInlineKeyboardButton(messageService.getRussianStringDay(DayOfWeek.THURSDAY.getValue()),
-                                messageService.getSourceText(CallbackButtonEnum.DELETE_LESSON_CHOOSE_LESSON.callbackAction.replayCode)
-//                                        + AddLessonToDayChoseLessonHandler.packDayData(4)
+                                messageService.getSourceText(CallbackButtonEnum.DELETE_LESSON_CHOOSE_LESSON.callbackAction.commandCode)
+                                        + DeleteLessonChooseLesson.packDayData(DayOfWeek.THURSDAY.getValue())
                         ),
                         new MyInlineKeyboardButton(messageService.getRussianStringDay(DayOfWeek.FRIDAY.getValue()),
-                                messageService.getSourceText(CallbackButtonEnum.DELETE_LESSON_CHOOSE_LESSON.callbackAction.replayCode)
-//                                        + AddLessonToDayChoseLessonHandler.packDayData(5)
+                                messageService.getSourceText(CallbackButtonEnum.DELETE_LESSON_CHOOSE_LESSON.callbackAction.commandCode)
+                                        + DeleteLessonChooseLesson.packDayData(DayOfWeek.FRIDAY.getValue())
                         ),
                         new MyInlineKeyboardButton(messageService.getRussianStringDay(DayOfWeek.SATURDAY.getValue()),
-                                messageService.getSourceText(CallbackButtonEnum.DELETE_LESSON_CHOOSE_LESSON.callbackAction.replayCode)
-//                                        + AddLessonToDayChoseLessonHandler.packDayData(6)
+                                messageService.getSourceText(CallbackButtonEnum.DELETE_LESSON_CHOOSE_LESSON.callbackAction.commandCode)
+                                        + DeleteLessonChooseLesson.packDayData(DayOfWeek.SATURDAY.getValue())
                         ),
-                        new MyInlineKeyboardButton(messageService.getRussianStringDay(DayOfWeek.FRIDAY.getValue()),
-                                messageService.getSourceText(CallbackButtonEnum.DELETE_LESSON_CHOOSE_LESSON.callbackAction.replayCode)
-//                                        + AddLessonToDayChoseLessonHandler.packDayData(7)
+                        new MyInlineKeyboardButton(messageService.getRussianStringDay(DayOfWeek.SUNDAY.getValue()),
+                                messageService.getSourceText(CallbackButtonEnum.DELETE_LESSON_CHOOSE_LESSON.callbackAction.commandCode)
+                                        + DeleteLessonChooseLesson.packDayData(DayOfWeek.SUNDAY.getValue())
                         ),
                 }
         };

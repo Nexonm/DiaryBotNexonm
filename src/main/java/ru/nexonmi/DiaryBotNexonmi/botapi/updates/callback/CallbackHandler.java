@@ -35,6 +35,10 @@ public class CallbackHandler {
                 new TimetableEditHandler(messageService, repository));
         callbackMap.put(messageService.getSourceText(CallbackEnum.DELETE_LESSON_CHOOSE_DAY.commandCode),
                 new DeleteLessonChooseDayHandler(messageService, repository));
+        callbackMap.put(messageService.getSourceText(CallbackEnum.DELETE_LESSON_CHOOSE_LESSON.commandCode),
+                new DeleteLessonChooseLesson(messageService, repository));
+        callbackMap.put(messageService.getSourceText(CallbackEnum.DELETE_LESSON_FROM_DAY.commandCode),
+                new DeleteLessonFromDay(messageService, repository));
     }
 
     public BotApiMethod<?> handleUpdate(Update update){

@@ -9,7 +9,8 @@ enum CallbackEnum {
     SHOW_ALL_TIMETABLE("command.callback.show_all_timetable", "replay.callback.show_all_message_title"),
     TIMETABLE_EDIT("command.callback.timetable_edit", "replay.callback.timetable_edit"),
     DELETE_LESSON_CHOOSE_DAY("command.callback.delete_lesson_choose_day", "replay.callback.delete_lesson_chose_day"),
-    DELETE_LESSON_CHOOSE_LESSON("nul", "command.callback.delete_lesson_choose_lesson");
+    DELETE_LESSON_CHOOSE_LESSON("command.callback.delete_lesson_choose_lesson", "nul"),
+    DELETE_LESSON_FROM_DAY("command.callback.delete_lesson_from_day", "null");
 
     String commandCode;
     String replayCode;
