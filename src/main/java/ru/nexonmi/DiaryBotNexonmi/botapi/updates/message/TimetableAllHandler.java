@@ -2,10 +2,9 @@ package ru.nexonmi.DiaryBotNexonmi.botapi.updates.message;
 
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
-import ru.nexonmi.DiaryBotNexonmi.botapi.service.GetUserInterface;
+import ru.nexonmi.DiaryBotNexonmi.botapi.updates.service.GetUserInterface;
 import ru.nexonmi.DiaryBotNexonmi.botapi.service.MessageService;
-import ru.nexonmi.DiaryBotNexonmi.botapi.service.MyInlineKeyboardButton;
-import ru.nexonmi.DiaryBotNexonmi.botapi.updates.callback.CallbackEnum;
+import ru.nexonmi.DiaryBotNexonmi.botapi.updates.service.MyInlineKeyboardButton;
 import ru.nexonmi.DiaryBotNexonmi.data.repository.DataRepository;
 import ru.nexonmi.DiaryBotNexonmi.domain.entity.DayEntity;
 import ru.nexonmi.DiaryBotNexonmi.domain.entity.UserEntity;

@@ -1,4 +1,4 @@
-package ru.nexonmi.DiaryBotNexonmi.botapi.service;
+package ru.nexonmi.DiaryBotNexonmi.botapi.updates.service;
 
 public class MyInlineKeyboardButton {
     public String title;

@@ -3,7 +3,7 @@ package ru.nexonmi.DiaryBotNexonmi.botapi.updates.callback;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.nexonmi.DiaryBotNexonmi.botapi.service.MessageService;
-import ru.nexonmi.DiaryBotNexonmi.botapi.service.MyInlineKeyboardButton;
+import ru.nexonmi.DiaryBotNexonmi.botapi.updates.service.MyInlineKeyboardButton;
 import ru.nexonmi.DiaryBotNexonmi.data.repository.DataRepository;
 
 public class TimetableEditHandler extends InputCallbackHandler {
