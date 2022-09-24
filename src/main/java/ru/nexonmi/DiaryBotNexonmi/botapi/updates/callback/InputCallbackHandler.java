@@ -1,7 +1,7 @@
 package ru.nexonmi.DiaryBotNexonmi.botapi.updates.callback;
 
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
-import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import ru.nexonmi.DiaryBotNexonmi.botapi.service.MessageService;
 import ru.nexonmi.DiaryBotNexonmi.data.repository.DataRepository;
 
@@ -14,5 +14,5 @@ abstract class InputCallbackHandler {
         this.repository = repository;
     }
 
-    protected abstract BotApiMethod<?> handleCallback(Update update);
+    protected abstract BotApiMethod<?> handleCallback(CallbackQuery callback);
 }

@@ -1,6 +1,7 @@
 package ru.nexonmi.DiaryBotNexonmi.botapi.updates.callback;
 
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
+import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.nexonmi.DiaryBotNexonmi.botapi.updates.service.GetUserInterface;
 import ru.nexonmi.DiaryBotNexonmi.botapi.service.MessageService;
@@ -15,9 +16,9 @@ public class ShowAllTimetableHandler extends InputCallbackHandler implements Get
     }
 
     @Override
-    protected BotApiMethod<?> handleCallback(Update update) {
+    protected BotApiMethod<?> handleCallback(CallbackQuery callback) {
         try {
-            UserEntity user = get(update.getCallbackQuery().getMessage().getChatId());
+            UserEntity user = get(callback.getMessage().getChatId());
             StringBuilder ansStrBuilder = new StringBuilder();
             ansStrBuilder.append(messageService.getSourceText(CallbackEnum.SHOW_ALL_TIMETABLE.replayCode));
             for (DayEntity day : user.getDiary().getDays()) {
@@ -30,14 +31,14 @@ public class ShowAllTimetableHandler extends InputCallbackHandler implements Get
             }
 
             return messageService.getEditMessage(
-                    update.getCallbackQuery().getMessage().getChatId(),
-                    update.getCallbackQuery().getMessage().getMessageId(),
+                    callback.getMessage().getChatId(),
+                    callback.getMessage().getMessageId(),
                     ansStrBuilder.toString(),
                     null
             );
         } catch (Exception e) {
             e.printStackTrace();
-            return messageService.getReplyMessage(update.getCallbackQuery().getMessage().getChatId(), "replay.some_error");
+            return messageService.getReplyMessage(callback.getMessage().getChatId(), "replay.some_error");
         }
     }
 

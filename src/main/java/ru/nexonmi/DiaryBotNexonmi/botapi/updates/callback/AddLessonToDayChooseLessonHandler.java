@@ -3,6 +3,7 @@ package ru.nexonmi.DiaryBotNexonmi.botapi.updates.callback;
 import com.google.gson.Gson;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
+import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.nexonmi.DiaryBotNexonmi.botapi.updates.service.GetUserInterface;
 import ru.nexonmi.DiaryBotNexonmi.botapi.service.MessageService;
@@ -21,9 +22,9 @@ class AddLessonToDayChooseLessonHandler extends InputCallbackHandler implements 
     }
 
     @Override
-    protected BotApiMethod<?> handleCallback(Update update) {
-        long chat_id = update.getCallbackQuery().getMessage().getChatId();
-        int day = unpackDayData(update.getCallbackQuery().getData());
+    protected BotApiMethod<?> handleCallback(CallbackQuery callback) {
+        long chat_id = callback.getMessage().getChatId();
+        int day = unpackDayData(callback.getData());
         try {
             UserEntity user = get(chat_id);
             System.out.println("user is: "+ UserToJSONMapper.userToJSON(user));
@@ -45,7 +46,7 @@ class AddLessonToDayChooseLessonHandler extends InputCallbackHandler implements 
 
             EditMessageText edMes =  messageService.getEditMessage(
                     chat_id,
-                    update.getCallbackQuery().getMessage().getMessageId(),
+                    callback.getMessage().getMessageId(),
                     ansStrBuilder.toString(),
                     messageService.getReplayKeyboardInMessage(makeKeyboard(
                             user.getDiary().getUserLessonsArray(), day

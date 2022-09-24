@@ -2,6 +2,7 @@ package ru.nexonmi.DiaryBotNexonmi.botapi.updates.callback;
 
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
+import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.nexonmi.DiaryBotNexonmi.botapi.service.MessageService;
 import ru.nexonmi.DiaryBotNexonmi.botapi.updates.service.MyInlineKeyboardButton;
@@ -16,10 +17,10 @@ class AddLessonToTimetableChooseDayHandler extends InputCallbackHandler {
     }
 
     @Override
-    protected BotApiMethod<?> handleCallback(Update update) {
+    protected BotApiMethod<?> handleCallback(CallbackQuery callback) {
         EditMessageText edMes = new EditMessageText();
-        edMes.setChatId(update.getCallbackQuery().getMessage().getChatId());
-        edMes.setMessageId(update.getCallbackQuery().getMessage().getMessageId());
+        edMes.setChatId(callback.getMessage().getChatId());
+        edMes.setMessageId(callback.getMessage().getMessageId());
         edMes.setText(messageService.getSourceText(CallbackEnum.ADD_LESSON_TO_TIMETABLE_CHOOSE_DAY.replayCode));
         edMes.setReplyMarkup(messageService.getReplayKeyboardInMessage(makeKeyboard()));
 

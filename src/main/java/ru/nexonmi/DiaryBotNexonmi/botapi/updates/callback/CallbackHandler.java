@@ -3,6 +3,7 @@ package ru.nexonmi.DiaryBotNexonmi.botapi.updates.callback;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.nexonmi.DiaryBotNexonmi.botapi.service.MessageService;
 import ru.nexonmi.DiaryBotNexonmi.data.repository.DataRepository;
@@ -41,16 +42,16 @@ public class CallbackHandler {
                 new DeleteLessonFromDay(messageService, repository));
     }
 
-    public BotApiMethod<?> handleUpdate(Update update){
+    public BotApiMethod<?> handleUpdate(CallbackQuery callback){
         for (String command : callbackMap.keySet()){
             System.out.printf("The command: %s, the message.text: %s, the result: %b\n",
-                    command, update.getCallbackQuery().getData(),
-                    update.getCallbackQuery().getData().startsWith(command));
-            if (update.getCallbackQuery().getData().startsWith(command))
-                return callbackMap.get(command).handleCallback(update);
+                    command, callback.getData(),
+                    callback.getData().startsWith(command));
+            if (callback.getData().startsWith(command))
+                return callbackMap.get(command).handleCallback(callback);
         }
         System.out.println("Finish checking the message code in for-loop}");
-        return new SendMessage(String.valueOf(update.getCallbackQuery().getMessage().getChatId()),
-                "HI FROM CALLBACK HANDLER " + update.getCallbackQuery().getData());
+        return new SendMessage(String.valueOf(callback.getMessage().getChatId()),
+                "HI FROM CALLBACK HANDLER " + callback.getData());
     }
 }

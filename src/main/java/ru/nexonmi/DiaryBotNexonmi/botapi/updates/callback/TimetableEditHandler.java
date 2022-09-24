@@ -1,6 +1,7 @@
 package ru.nexonmi.DiaryBotNexonmi.botapi.updates.callback;
 
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
+import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.nexonmi.DiaryBotNexonmi.botapi.service.MessageService;
 import ru.nexonmi.DiaryBotNexonmi.botapi.updates.service.MyInlineKeyboardButton;
@@ -13,19 +14,19 @@ public class TimetableEditHandler extends InputCallbackHandler {
     }
 
     @Override
-    protected BotApiMethod<?> handleCallback(Update update) {
+    protected BotApiMethod<?> handleCallback(CallbackQuery callback) {
         try {
 
             //main idea is just to set new buttons in message
             return messageService.getEditMessage(
-                    update.getCallbackQuery().getMessage().getChatId(),
-                    update.getCallbackQuery().getMessage().getMessageId(),
-                    update.getCallbackQuery().getMessage().getText(),
+                    callback.getMessage().getChatId(),
+                    callback.getMessage().getMessageId(),
+                    callback.getMessage().getText(),
                     messageService.getReplayKeyboardInMessage(makeKeyboard())
             );
 
         } catch (Exception e) {
-            return messageService.getReplyMessage(update.getCallbackQuery().getMessage().getChatId(), "replay.some_error");
+            return messageService.getReplyMessage(callback.getMessage().getChatId(), "replay.some_error");
         }
     }
 

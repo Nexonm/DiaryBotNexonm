@@ -6,6 +6,7 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.updates.SetWebhook;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.starter.SpringWebhookBot;
+import ru.nexonmi.DiaryBotNexonmi.botapi.updates.UpdatesFacade;
 import ru.nexonmi.DiaryBotNexonmi.botapi.updates.callback.CallbackHandler;
 import ru.nexonmi.DiaryBotNexonmi.botapi.updates.message.MessageHandler;
 
@@ -14,34 +15,23 @@ public class DiaryTelegramBot extends SpringWebhookBot {
     private String botUserName;
     private String botToken;
 
-    private MessageHandler messageHandler;
-    private CallbackHandler callbackHandler;
+    private UpdatesFacade updatesFacade;
 
 
-    public DiaryTelegramBot(SetWebhook setWebhook, MessageHandler messageHandler, CallbackHandler callbackHandler) {
+    public DiaryTelegramBot(SetWebhook setWebhook, UpdatesFacade updatesFacade) {
         super(setWebhook);
-        this.messageHandler = messageHandler;
-        this.callbackHandler = callbackHandler;
+        this.updatesFacade = updatesFacade;
     }
 
-    public DiaryTelegramBot(DefaultBotOptions options, SetWebhook setWebhook, MessageHandler messageHandler) {
+    public DiaryTelegramBot(DefaultBotOptions options, SetWebhook setWebhook) {
         super(options, setWebhook);
-        this.messageHandler = messageHandler;
     }
 
 
     @Override
     public BotApiMethod<?> onWebhookUpdateReceived(Update update) {
 
-        if (update.getMessage() != null && update.getMessage().hasText()) {
-            System.out.println("Some message was handled: " + update.getMessage().getText());
-            return messageHandler.handleMessage(update.getMessage());
-        } else if (update.hasCallbackQuery()) {
-            System.out.println("Some callback was handled: " + update.getCallbackQuery().getData());
-            return callbackHandler.handleUpdate(update);
-        }
-        //return SendMessage
-        return null;
+        return updatesFacade.handleUpdate(update);
     }
 
 

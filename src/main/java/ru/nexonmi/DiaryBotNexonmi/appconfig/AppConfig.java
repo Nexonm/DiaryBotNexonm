@@ -7,6 +7,7 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 import org.telegram.telegrambots.meta.api.methods.updates.SetWebhook;
 import ru.nexonmi.DiaryBotNexonmi.botapi.DiaryTelegramBot;
 import ru.nexonmi.DiaryBotNexonmi.botapi.botconfig.BotConfig;
+import ru.nexonmi.DiaryBotNexonmi.botapi.updates.UpdatesFacade;
 import ru.nexonmi.DiaryBotNexonmi.botapi.updates.callback.CallbackHandler;
 import ru.nexonmi.DiaryBotNexonmi.botapi.updates.message.MessageHandler;
 
@@ -32,13 +33,13 @@ public class AppConfig {
     }
 
     @Bean
-    public DiaryTelegramBot diaryTelegramBot(SetWebhook setWebhook, MessageHandler messageHandler, CallbackHandler callbackHandler) {
+    public DiaryTelegramBot diaryTelegramBot(SetWebhook setWebhook, UpdatesFacade updatesFacade) {
 
         LOGGER.log(Level.INFO, "BotUserName = " + botConfig.getBotUserName());
         LOGGER.log(Level.INFO, "BotToken = " + botConfig.getBotToken());
         LOGGER.log(Level.INFO, "BotWebhookPath = " + botConfig.getWebHookPath());
 
-        DiaryTelegramBot bot = new DiaryTelegramBot(setWebhook, messageHandler, callbackHandler);
+        DiaryTelegramBot bot = new DiaryTelegramBot(setWebhook, updatesFacade);
         bot.setBotUserName(botConfig.getBotUserName());
         bot.setBotToken(botConfig.getBotToken());
         bot.setWebhookPath(botConfig.getWebHookPath());
