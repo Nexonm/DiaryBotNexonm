@@ -11,6 +11,7 @@ public class UserEntity {
     //entity fields
     private final long chatID_tg;
     private final DiaryEntity diary;
+    private StateEnum state;
 
     ////////////////////////////////////////////
     /////////// Constructors //////////////////
@@ -35,4 +36,18 @@ public class UserEntity {
         return diary;
     }
 
+    public StateEnum getState() {
+        return state;
+    }
+
+    ////////////////////////////////////////////
+    ////////////// Setters ////////////////////
+
+    public void resetState(){
+        this.state = StateEnum.DEFAULT_STATE;
+    }
+
+    public void setState(StateEnum state) {
+        this.state = state;
+    }
 }
