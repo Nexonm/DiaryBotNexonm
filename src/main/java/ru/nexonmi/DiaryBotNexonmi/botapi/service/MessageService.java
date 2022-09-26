@@ -23,8 +23,10 @@ public class MessageService {
         return new SendMessage(String.valueOf(chatId), replayText);
     }
 
-    public SendMessage getReplyMessage(long chatId, String replyMessageCode, Object... args) {
-        return new SendMessage(String.valueOf(chatId), localeMessageService.getMessage(replyMessageCode, args));
+    public SendMessage getReplyMessage(long chatId, String replyMessageCode, InlineKeyboardMarkup keyboardMarkup) {
+        SendMessage sendMessage = new SendMessage(String.valueOf(chatId), localeMessageService.getMessage(replyMessageCode));
+        sendMessage.setReplyMarkup(keyboardMarkup);
+        return sendMessage;
     }
 
     public EditMessageText getEditMessage(long chat_id, int message_id, String replayText, InlineKeyboardMarkup keyboard) {

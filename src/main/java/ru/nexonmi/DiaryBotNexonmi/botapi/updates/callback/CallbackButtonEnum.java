@@ -11,10 +11,11 @@ public enum CallbackButtonEnum {
     DELETE_LESSON_CHOOSE_DAY_ANOTHER("btn.delete_lesson_from_timetable.choose_another_day.title", CallbackEnum.DELETE_LESSON_CHOOSE_DAY),
     DELETE_LESSON_CHOOSE_LESSON("btn.delete_lesson_from_timetable.delete_another_lesson.title", CallbackEnum.DELETE_LESSON_CHOOSE_LESSON),
     DELETE_LESSON_FROM_DAY("null", CallbackEnum.DELETE_LESSON_FROM_DAY),
+    HOMEWORK_ADD_SET_STATE("ignored", CallbackEnum.HOMEWORK_ADD_SET_STATE),
     SOME_ERROR("replay.some_error", null);
 
-    String title;
-    CallbackEnum callbackAction;
+    public String title;
+    public CallbackEnum callbackAction;
 
     CallbackButtonEnum(String title, CallbackEnum callbackAction) {
         this.title = title;

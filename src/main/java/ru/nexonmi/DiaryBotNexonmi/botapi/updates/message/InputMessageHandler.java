@@ -1,5 +1,6 @@
 package ru.nexonmi.DiaryBotNexonmi.botapi.updates.message;
 
+import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import ru.nexonmi.DiaryBotNexonmi.botapi.service.MessageService;
@@ -14,5 +15,5 @@ abstract class InputMessageHandler {
         this.repository = repository;
     }
 
-    protected abstract SendMessage handleMessage(Message message);
+    protected abstract BotApiMethod<?> handleMessage(Message message);
 }
