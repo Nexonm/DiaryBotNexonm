@@ -8,7 +8,9 @@ enum MessageEnum {
     TIMETABLE_EDIT("command.message.timetable_edit", "replay.message.timetable_edit"),
     TIMETABLE_ALL("command.message.timetable_all", "replay.message.timetable_all"),
     HOMEWORK_ADD_CHOOSE_LESSON("command.message.homework_add_choose_lesson",
-            "replay.message.homework_add_choose_lesson");
+            "replay.message.homework_add_choose_lesson"),
+    HOMEWORK_TOMORROW("command.message.homework_tomorrow",
+            "replay.message.homework_tomorrow");
 
     String commandCode;
     String replayCode;
