@@ -16,7 +16,7 @@ repositories {
 dependencies {
 
 	//SpringBoot Web starter
-	implementation 'org.springframework.boot:spring-boot-starter-web:2.7.2'
+	implementation 'org.springframework.boot:spring-boot-starter-web:2.7.4'
 
 	//telegram api
 	implementation 'org.telegram:telegrambots-spring-boot-starter:6.1.0'
