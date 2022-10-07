@@ -24,9 +24,9 @@ public class HomeworkTomorrowHandler extends InputMessageHandler implements GetU
             StringBuilder ansStr = new StringBuilder();
 
             ansStr.append(messageService.getSourceText(MessageEnum.HOMEWORK_TOMORROW.replayCode))
-                    .append(messageService.getRussianStringDay(day))
+                    .append(messageService.getRussianStringDay(day+1))
                     .append(":\n\n");
-            for (int lesID : user.getDiary().getDays()[day - 1].getLessonIDs()) {
+            for (int lesID : user.getDiary().getDays()[day -1 + 1].getLessonIDs()) {
                 LessonEntity lesson = user.getDiary().getUserLessons().get(lesID);
                 ansStr.append(lesson.getName())
                         .append("\n-")
