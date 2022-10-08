@@ -61,29 +61,33 @@ public class MessageHandler implements GetUserInterface, SaveUserInterface {
             }
         }
         StateEnum state = checkIfUserHasState(message.getChatId());
-        if (state != StateEnum.DEFAULT_STATE){
+        if (state != StateEnum.DEFAULT_STATE) {
             return stateHandler.handleState(message, state);
         }
-
-        return new SendMessage(String.valueOf(message.getChatId()), "HI HERE: " + message.getText());
+        //change if message is from group
+        if (message.isGroupMessage())
+            return null;
+        else
+            return new SendMessage(String.valueOf(message.getChatId()),
+                    messageService.getSourceText("replay.unknown"));
     }
 
-    private void resetUserState(long chat_id){
+    private void resetUserState(long chat_id) {
         try {
             UserEntity user = get(chat_id);
             user.resetState();
             save(user);
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Ignored Exception:");
             e.printStackTrace();
         }
     }
 
-    private StateEnum checkIfUserHasState(long chat_id){
+    private StateEnum checkIfUserHasState(long chat_id) {
         try {
             UserEntity user = get(chat_id);
             return user.getState();
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Ignored Exception:");
             e.printStackTrace();
             return StateEnum.DEFAULT_STATE;
