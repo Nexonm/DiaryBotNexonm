@@ -20,29 +20,42 @@ class RegisterNewLessonHandler extends InputMessageHandler implements GetUserInt
     @Override
     protected SendMessage handleMessage(Message message) {
         if (message.getText().length() <= messageService.getSourceText(MessageEnum.REGISTER_NEW_LESSON.commandCode).length()) {
-            return messageService.getReplyMessage(message.getChatId(), MessageEnum.REGISTER_NEW_LESSON.replayCode);
+            return messageService.getReplyMessage(message.getChatId(),
+                    messageService.getSourceText(MessageEnum.REGISTER_NEW_LESSON.replayCode));
         }
 
         UserEntity user = get(message.getChatId());
-        String newLessonName = message.getText().substring(messageService.getSourceText(MessageEnum.REGISTER_NEW_LESSON.commandCode).length());
-        newLessonName = newLessonName.trim();
+        String[] newLessons = message.getText()
+                .substring(messageService.getSourceText(MessageEnum.REGISTER_NEW_LESSON.commandCode).length())
+                .split("\n");
         try {
-            user.getDiary().registerLesson(newLessonName);
+            for (String lessonName : newLessons)
+                if (lessonName.trim().length() > 0)
+                    user.getDiary().registerLesson(lessonName.trim());
         } catch (LessonAlreadyExistsException e) {
             return messageService.getReplyMessage(message.getChatId(),
                     messageService.getSourceText("replay.message.register_new_lesson_error_already_exists_beginning").concat(
-                            newLessonName).concat(" ").concat(
+                            e.getLessonName()).concat(" ").concat(
                             messageService.getSourceText("replay.message.register_new_lesson_error_already_exists_end")));
         } catch (Exception e) {
             return messageService.getReplyMessage(message.getChatId(),
                     messageService.getSourceText("replay.message.register_new_lesson_error") + " error:" + e.getMessage());
         }
         save(user);
+        StringBuilder strBuilder = new StringBuilder();
+        if (newLessons.length > 1) {
+            strBuilder.append(messageService.getSourceText("replay.message.register_new_lesson_ok_beginning_few")).append(":\n");
+            for (String lessonName : newLessons)
+                if (lessonName.trim().length() > 0)
+                    strBuilder.append(lessonName.trim()).append("\n");
+            strBuilder.append(messageService.getSourceText("replay.message.register_new_lesson_ok_end_few"));
+        } else {
+            strBuilder.append(messageService.getSourceText("replay.message.register_new_lesson_ok_beginning_one")).append(" ");
+            strBuilder.append(newLessons[0]).append(" ");
+            strBuilder.append(messageService.getSourceText("replay.message.register_new_lesson_ok_end_one"));
+        }
         return messageService.getReplyMessage(message.getChatId(),
-                messageService.getSourceText("replay.message.register_new_lesson_ok_beginning").concat(
-                        newLessonName).concat(" ").concat(
-                        messageService.getSourceText("replay.message.register_new_lesson_ok_end")));
-
+                strBuilder.toString());
     }
 
     @Override

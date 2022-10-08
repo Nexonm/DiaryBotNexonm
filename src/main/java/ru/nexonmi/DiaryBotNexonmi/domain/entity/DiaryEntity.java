@@ -70,7 +70,7 @@ public class DiaryEntity {
                 break;
             }
 
-        if (contains) throw new LessonAlreadyExistsException();
+        if (contains) throw new LessonAlreadyExistsException(lessonName);
         lastLessonId++;
         LessonEntity lesson = new LessonEntity(lastLessonId, lessonName);
 
