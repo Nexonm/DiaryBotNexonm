@@ -5,6 +5,7 @@ import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.nexonmi.DiaryBotNexonmi.botapi.updates.service.GetUserInterface;
 import ru.nexonmi.DiaryBotNexonmi.botapi.service.MessageService;
+import ru.nexonmi.DiaryBotNexonmi.botapi.updates.service.MyInlineKeyboardButton;
 import ru.nexonmi.DiaryBotNexonmi.data.repository.DataRepository;
 import ru.nexonmi.DiaryBotNexonmi.domain.entity.DayEntity;
 import ru.nexonmi.DiaryBotNexonmi.domain.entity.UserEntity;
@@ -34,12 +35,21 @@ public class ShowAllTimetableHandler extends InputCallbackHandler implements Get
                     callback.getMessage().getChatId(),
                     callback.getMessage().getMessageId(),
                     ansStrBuilder.toString(),
-                    null
+                    makeKeyboard()
             );
         } catch (Exception e) {
             e.printStackTrace();
             return messageService.getReplyMessage(callback.getMessage().getChatId(), "replay.some_error");
         }
+    }
+
+    private MyInlineKeyboardButton[][] makeKeyboard(){
+        return new MyInlineKeyboardButton[][]{
+                {
+                    new MyInlineKeyboardButton(messageService.getSourceText(CallbackButtonEnum.TIMETABLE_EDIT.title),
+                            messageService.getSourceText(CallbackButtonEnum.TIMETABLE_EDIT.callbackAction.commandCode))
+                }
+        };
     }
 
     @Override

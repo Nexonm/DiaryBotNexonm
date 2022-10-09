@@ -23,7 +23,7 @@ public class DeleteLessonChooseDayHandler extends InputCallbackHandler implement
         EditMessageText edMes = new EditMessageText();
         edMes.setChatId(callback.getMessage().getChatId());
         edMes.setMessageId(callback.getMessage().getMessageId());
-        edMes.setText(messageService.getSourceText("replay.callback.delete_lesson_chose_day"));
+        edMes.setText(messageService.getSourceText(CallbackEnum.DELETE_LESSON_CHOOSE_DAY.replayCode));
         edMes.setReplyMarkup(messageService.getReplayKeyboardInMessage(makeKeyboard()));
 
         return edMes;

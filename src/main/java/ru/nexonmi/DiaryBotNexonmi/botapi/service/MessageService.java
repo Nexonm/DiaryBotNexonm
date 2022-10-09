@@ -8,6 +8,7 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKe
 import ru.nexonmi.DiaryBotNexonmi.botapi.updates.service.MyInlineKeyboardButton;
 
 
+import javax.validation.constraints.NotNull;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -28,6 +29,9 @@ public class MessageService {
         sendMessage.setReplyMarkup(keyboardMarkup);
         return sendMessage;
     }
+    public SendMessage getReplyMessage(long chatId, String replyMessageCode, MyInlineKeyboardButton[][] myButtons) {
+        return  getReplyMessage(chatId, replyMessageCode, getReplayKeyboardInMessage(myButtons));
+    }
 
     public EditMessageText getEditMessage(long chat_id, int message_id, String replayText, InlineKeyboardMarkup keyboard) {
         EditMessageText edMes = new EditMessageText();
@@ -36,6 +40,17 @@ public class MessageService {
         edMes.setText(replayText);
         if (keyboard != null)
             edMes.setReplyMarkup(keyboard);
+        return edMes;
+    }
+
+    public EditMessageText getEditMessage(long chat_id, int message_id, String replayText, @NotNull MyInlineKeyboardButton[][] myButtons) {
+        return getEditMessage(chat_id, message_id, replayText, getReplayKeyboardInMessage(myButtons));
+    }
+    public EditMessageText getEditMessage(long chat_id, int message_id, String replayText) {
+        EditMessageText edMes = new EditMessageText();
+        edMes.setChatId(chat_id);
+        edMes.setMessageId(message_id);
+        edMes.setText(replayText);
         return edMes;
     }
 
@@ -85,33 +100,21 @@ public class MessageService {
     }
 
     public String getRussianStringMonth(int monthNum){
-        switch (monthNum){
-            case 1: return "января";
-
-            case 2: return "февраля";
-
-            case 3: return "марта";
-
-            case 4: return "апреля";
-
-            case 5: return "майа";
-
-            case 6: return "июня";
-
-            case 7: return "июля";
-
-            case 8: return "августа";
-
-            case 9: return "сентября";
-
-            case 10: return "октября";
-
-            case 11: return "ноября";
-
-            case 12: return "декабря";
-
-            default: return "ошибка в получении месяца";
-        }
+        return switch (monthNum) {
+            case 1 -> "января";
+            case 2 -> "февраля";
+            case 3 -> "марта";
+            case 4 -> "апреля";
+            case 5 -> "мая";
+            case 6 -> "июня";
+            case 7 -> "июля";
+            case 8 -> "августа";
+            case 9 -> "сентября";
+            case 10 -> "октября";
+            case 11 -> "ноября";
+            case 12 -> "декабря";
+            default -> "ошибка в получении месяца";
+        };
     }
 
 

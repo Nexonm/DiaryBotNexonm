@@ -12,6 +12,7 @@ public enum CallbackButtonEnum {
     DELETE_LESSON_CHOOSE_LESSON("btn.delete_lesson_from_timetable.delete_another_lesson.title", CallbackEnum.DELETE_LESSON_CHOOSE_LESSON),
     DELETE_LESSON_FROM_DAY("null", CallbackEnum.DELETE_LESSON_FROM_DAY),
     HOMEWORK_ADD_SET_STATE("ignored", CallbackEnum.HOMEWORK_ADD_SET_STATE),
+    TIMETABLE_EDIT("btn.timetable_edit.title", CallbackEnum.TIMETABLE_EDIT),
     SOME_ERROR("replay.some_error", null);
 
     public String title;

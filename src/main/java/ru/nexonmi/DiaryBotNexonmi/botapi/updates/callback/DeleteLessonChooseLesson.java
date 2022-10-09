@@ -35,24 +35,25 @@ public class DeleteLessonChooseLesson extends InputCallbackHandler implements Ge
             ansStrBuilder.append("Расписание на ")
                     .append(messageService.getRussianStringDay(day))
                     .append(":\n");
-            for (int lessonId : user.getDiary().getDays()[day - 1].getLessonIDs())
-                ansStrBuilder.append(user.getDiary().getUserLessons().get(lessonId).getName()).append("\n");
-
-
-            ansStrBuilder.append("\n\n");
-            ansStrBuilder.append("Выберите урок, который хотите удалить");
-
-//            for (LessonEntity lesson : user.getDiary().getUserLessons()){
-//                System.out.println("Lesson is: " + lesson.getName());
-//            }
+            boolean hasLessons = user.getDiary().getDays()[day - 1].getLessonIDs().size() > 0;
+            if (hasLessons) {
+                for (int lessonId : user.getDiary().getDays()[day - 1].getLessonIDs())
+                    ansStrBuilder.append(user.getDiary().getUserLessons().get(lessonId).getName()).append("\n");
+                ansStrBuilder.append("\n\n");
+                ansStrBuilder.append("Выберите урок, который хотите удалить");
+            } else {
+                ansStrBuilder.append("\n\n");
+                ansStrBuilder.append("Ой, в этот день видимо отдыхаем, уроков нет");
+            }
 
             return messageService.getEditMessage(
                     chat_id,
                     callback.getMessage().getMessageId(),
                     ansStrBuilder.toString(),
-                    messageService.getReplayKeyboardInMessage(makeKeyboard(
-                            user.getDiary(), day
-                    ))
+                    hasLessons ?
+                            messageService.getReplayKeyboardInMessage(makeKeyboard(
+                                    user.getDiary(), day))
+                            : null
             );
 //            return messageService.getReplyMessage(chat_id, "replay.some_error");
         } catch (Exception e) {
@@ -63,14 +64,14 @@ public class DeleteLessonChooseLesson extends InputCallbackHandler implements Ge
     }
 
     private MyInlineKeyboardButton[][] makeKeyboard(DiaryEntity diary, int day) {
-        MyInlineKeyboardButton[][] arr = new MyInlineKeyboardButton[diary.getDays()[day-1].getLessonIDs().size()][1];
+        MyInlineKeyboardButton[][] arr = new MyInlineKeyboardButton[diary.getDays()[day - 1].getLessonIDs().size()][1];
         for (int i = 0; i < arr.length; i++) {
             arr[i][0] = new MyInlineKeyboardButton(
                     diary.getUserLessons().get(
-                            diary.getDays()[day-1].getLessonIDs().get(i)
+                            diary.getDays()[day - 1].getLessonIDs().get(i)
                     ).getName(),
                     messageService.getSourceText(CallbackButtonEnum.DELETE_LESSON_FROM_DAY.callbackAction.commandCode) +
-                            DeleteLessonFromDay.packLessonToDeleteData(day, i+1));
+                            DeleteLessonFromDay.packLessonToDeleteData(day, i + 1));
         }
         //TODO add "cancel" button (create new handler class that will edit message
         return arr;

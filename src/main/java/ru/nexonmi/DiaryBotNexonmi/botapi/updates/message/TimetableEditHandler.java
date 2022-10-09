@@ -2,6 +2,7 @@ package ru.nexonmi.DiaryBotNexonmi.botapi.updates.message;
 
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
+import ru.nexonmi.DiaryBotNexonmi.botapi.updates.callback.CallbackButtonEnum;
 import ru.nexonmi.DiaryBotNexonmi.botapi.updates.service.GetUserInterface;
 import ru.nexonmi.DiaryBotNexonmi.botapi.service.MessageService;
 import ru.nexonmi.DiaryBotNexonmi.botapi.updates.service.MyInlineKeyboardButton;
@@ -47,12 +48,12 @@ class TimetableEditHandler extends InputMessageHandler implements GetUserInterfa
     private MyInlineKeyboardButton[][] makeKeyboard() {
         return new MyInlineKeyboardButton[][]{
                 {
-                        new MyInlineKeyboardButton(messageService.getSourceText("btn.add_lesson_to_timetable.title"),
-                                messageService.getSourceText("command.callback.add_lesson_to_timetable_choose_day"))
+                        new MyInlineKeyboardButton(messageService.getSourceText(CallbackButtonEnum.ADD_LESSON_TO_TIMETABLE_CHOOSE_DAY.title),
+                                messageService.getSourceText(CallbackButtonEnum.ADD_LESSON_TO_TIMETABLE_CHOOSE_DAY.callbackAction.commandCode))
                 },
                 {
-                        new MyInlineKeyboardButton(messageService.getSourceText("replay.callback.btn.delete_lesson_from_timetable"),
-                                "/delete_lesson_from_timetable")
+                        new MyInlineKeyboardButton(messageService.getSourceText(CallbackButtonEnum.DELETE_LESSON_CHOOSE_DAY.title),
+                                messageService.getSourceText(CallbackButtonEnum.DELETE_LESSON_CHOOSE_DAY.callbackAction.commandCode))
                 }
         };
     }

@@ -32,8 +32,7 @@ public class HomeworkAddSetStateHandler extends InputCallbackHandler implements 
                     callback.getMessage().getChatId(),
                     callback.getMessage().getMessageId(),
                     messageService.getSourceText(CallbackEnum.HOMEWORK_ADD_SET_STATE.replayCode) +
-                    user.getDiary().getUserLessons().get(unpackLessonData(callback.getData())).getName(),
-                    null);
+                    user.getDiary().getUserLessons().get(unpackLessonData(callback.getData())).getName());
         } catch (Exception e) {
             return messageService.getReplyMessage(callback.getMessage().getChatId(),
                     messageService.getSourceText("replay.some_error"));
