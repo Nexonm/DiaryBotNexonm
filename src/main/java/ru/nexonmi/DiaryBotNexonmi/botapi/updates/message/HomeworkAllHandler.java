@@ -23,7 +23,7 @@ public class HomeworkAllHandler extends InputMessageHandler implements GetUserIn
             ansStr.append(messageService.getSourceText(MessageEnum.HOMEWORK_ALL.replayCode));
             for (LessonEntity lesson : user.getDiary().getUserLessonsArray()) {
                 ansStr.append(lesson.getName())
-                        .append("\n-")
+                        .append("\n  -")
                         .append(lesson.getHomework())
                         .append("\n");
             }

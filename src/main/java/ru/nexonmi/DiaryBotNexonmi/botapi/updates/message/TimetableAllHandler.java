@@ -21,6 +21,7 @@ public class TimetableAllHandler extends InputMessageHandler implements GetUserI
             UserEntity user = get(message.getChatId());
             StringBuilder ansStrBuilder = new StringBuilder();
             ansStrBuilder.append(messageService.getSourceText(MessageEnum.TIMETABLE_ALL.replayCode));
+
             for (DayEntity day : user.getDiary().getDays()) {
                 ansStrBuilder.append(messageService.getRussianStringDay(day.getDayOfWeek().getDayNum()))
                         .append(":\n");
@@ -29,8 +30,6 @@ public class TimetableAllHandler extends InputMessageHandler implements GetUserI
                 else
                     for (int lessonId : day.getLessonIDs())
                         ansStrBuilder.append(user.getDiary().getUserLessons().get(lessonId).getName()).append("\n");
-
-                ansStrBuilder.append("\n");
             }
 
             SendMessage sendMessage = messageService.getReplyMessage(message.getChatId(), ansStrBuilder.toString());
