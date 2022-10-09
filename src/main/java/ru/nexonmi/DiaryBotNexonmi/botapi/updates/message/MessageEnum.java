@@ -12,7 +12,9 @@ enum MessageEnum {
     HOMEWORK_ADD_CHOOSE_LESSON("command.message.homework_add_choose_lesson",
             "replay.message.homework_add_choose_lesson"),
     HOMEWORK_TOMORROW("command.message.homework_tomorrow",
-            "replay.message.homework_tomorrow");
+            "replay.message.homework_tomorrow"),
+    HOMEWORK_ALL("command.message.homework_all",
+            "replay.message.homework_all");
 
     String commandCode;
     String replayCode;

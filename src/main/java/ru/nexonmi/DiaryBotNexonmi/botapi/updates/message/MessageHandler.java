@@ -48,6 +48,8 @@ public class MessageHandler implements GetUserInterface, SaveUserInterface {
                 new HomeworkTomorrowHandler(messageService, repository));
         messageMap.put(messageService.getSourceText(MessageEnum.TIMETABLE_TODAY.commandCode),
                 new TimetableTodayHandler(messageService, repository));
+        messageMap.put(messageService.getSourceText(MessageEnum.HOMEWORK_ALL.commandCode),
+                new HomeworkAllHandler(messageService, repository));
     }
 
 
