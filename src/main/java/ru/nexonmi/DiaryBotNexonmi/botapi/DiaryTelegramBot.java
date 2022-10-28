@@ -2,13 +2,10 @@ package ru.nexonmi.DiaryBotNexonmi.botapi;
 
 import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
-import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.updates.SetWebhook;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.starter.SpringWebhookBot;
 import ru.nexonmi.DiaryBotNexonmi.botapi.updates.UpdatesFacade;
-import ru.nexonmi.DiaryBotNexonmi.botapi.updates.callback.CallbackHandler;
-import ru.nexonmi.DiaryBotNexonmi.botapi.updates.message.MessageHandler;
 
 public class DiaryTelegramBot extends SpringWebhookBot {
     private String webhookPath;
