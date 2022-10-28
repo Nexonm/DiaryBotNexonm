@@ -2,6 +2,7 @@ package ru.nexonmi.DiaryBotNexonmi.botapi.updates.message;
 
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
+import ru.nexonmi.DiaryBotNexonmi.botapi.updates.callback.CallbackButtonEnum;
 import ru.nexonmi.DiaryBotNexonmi.botapi.updates.service.GetUserInterface;
 import ru.nexonmi.DiaryBotNexonmi.botapi.service.MessageService;
 import ru.nexonmi.DiaryBotNexonmi.botapi.updates.service.MyInlineKeyboardButton;
@@ -30,6 +31,7 @@ public class TimetableAllHandler extends InputMessageHandler implements GetUserI
                 else
                     for (int lessonId : day.getLessonIDs())
                         ansStrBuilder.append(user.getDiary().getUserLessons().get(lessonId).getName()).append("\n");
+                ansStrBuilder.append("\n");
             }
 
             SendMessage sendMessage = messageService.getReplyMessage(message.getChatId(), ansStrBuilder.toString());
@@ -40,11 +42,11 @@ public class TimetableAllHandler extends InputMessageHandler implements GetUserI
         }
     }
 
-    //TODO create callback.EditTimetable and make button for it
     private MyInlineKeyboardButton[][] makeKeyboard() {
         return new MyInlineKeyboardButton[][]{
-                {new MyInlineKeyboardButton(messageService.getSourceText("btn.timetable_edit.title"),
-                        messageService.getSourceText("command.callback.timetable_edit"))}
+                {new MyInlineKeyboardButton(
+                        messageService.getSourceText(CallbackButtonEnum.TIMETABLE_EDIT.title),
+                        messageService.getSourceText(CallbackButtonEnum.TIMETABLE_EDIT.callbackAction.commandCode))}
         };
     }
 
