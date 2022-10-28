@@ -61,7 +61,7 @@ public class MessageService {
      * @return keyboard for message
      */
     public InlineKeyboardMarkup getReplayKeyboardInMessage(MyInlineKeyboardButton[][] buttons) {
-        //todo write checks if there is too much buttons
+        //todo write checks if there are too much buttons
         InlineKeyboardMarkup markup = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> rows = new LinkedList<>();
 
