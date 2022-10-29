@@ -3,10 +3,8 @@ package ru.nexonmi.DiaryBotNexonmi.botapi.updates;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import ru.nexonmi.DiaryBotNexonmi.botapi.service.MessageService;
 import ru.nexonmi.DiaryBotNexonmi.botapi.updates.callback.CallbackHandler;
 import ru.nexonmi.DiaryBotNexonmi.botapi.updates.message.MessageHandler;
-import ru.nexonmi.DiaryBotNexonmi.data.repository.DataRepository;
 
 @Service
 public class UpdatesFacade {

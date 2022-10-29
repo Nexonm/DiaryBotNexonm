@@ -4,7 +4,7 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import ru.nexonmi.DiaryBotNexonmi.botapi.updates.callback.CallbackButtonEnum;
 import ru.nexonmi.DiaryBotNexonmi.botapi.updates.service.GetUserInterface;
-import ru.nexonmi.DiaryBotNexonmi.botapi.service.MessageService;
+import ru.nexonmi.DiaryBotNexonmi.botapi.botservice.MessageService;
 import ru.nexonmi.DiaryBotNexonmi.botapi.updates.service.MyInlineKeyboardButton;
 import ru.nexonmi.DiaryBotNexonmi.data.repository.DataRepository;
 import ru.nexonmi.DiaryBotNexonmi.domain.entity.DayEntity;

@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
-import ru.nexonmi.DiaryBotNexonmi.botapi.service.MessageService;
+import ru.nexonmi.DiaryBotNexonmi.botapi.botservice.MessageService;
 import ru.nexonmi.DiaryBotNexonmi.data.repository.DataRepository;
 
 import java.util.HashMap;

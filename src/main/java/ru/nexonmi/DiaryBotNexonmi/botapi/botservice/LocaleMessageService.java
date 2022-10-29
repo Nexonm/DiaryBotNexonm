@@ -1,4 +1,4 @@
-package ru.nexonmi.DiaryBotNexonmi.botapi.service;
+package ru.nexonmi.DiaryBotNexonmi.botapi.botservice;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
