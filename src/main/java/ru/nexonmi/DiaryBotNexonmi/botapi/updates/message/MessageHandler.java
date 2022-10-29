@@ -1,7 +1,7 @@
 package ru.nexonmi.DiaryBotNexonmi.botapi.updates.message;
 
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
-import ru.nexonmi.DiaryBotNexonmi.botapi.botservice.MessageService;
+import ru.nexonmi.DiaryBotNexonmi.botapi.service.MessageService;
 import org.springframework.stereotype.Service;
 
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;

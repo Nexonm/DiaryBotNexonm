@@ -1,4 +1,4 @@
-package ru.nexonmi.DiaryBotNexonmi.botapi.botservice;
+package ru.nexonmi.DiaryBotNexonmi.botapi.service;
 
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
