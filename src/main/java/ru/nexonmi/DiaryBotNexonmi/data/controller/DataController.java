@@ -5,14 +5,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.nexonmi.DiaryBotNexonmi.data.repository.DataRepository;
+import ru.nexonmi.DiaryBotNexonmi.data.service.DataService;
 
 @RestController
 public class DataController {
 
-    private final DataRepository repository;
+    private final DataService dataService;
 
-    public DataController(DataRepository repository) {
-        this.repository = repository;
+    public DataController(DataService dataService) {
+        this.dataService = dataService;
     }
 
     @PostMapping("/deletealldata/bykey/*****")
@@ -21,7 +22,7 @@ public class DataController {
     ) {
         try {
             return ResponseEntity.ok(
-                    repository.deleteAllData(key).toString()
+                    dataService.deleteAllData(key)
             );
         }catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());

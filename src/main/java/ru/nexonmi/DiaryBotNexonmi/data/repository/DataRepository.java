@@ -2,6 +2,7 @@ package ru.nexonmi.DiaryBotNexonmi.data.repository;
 
 
 import org.springframework.stereotype.Service;
+import ru.nexonmi.DiaryBotNexonmi.data.answer.DeleteAllDataAnswer;
 import ru.nexonmi.DiaryBotNexonmi.domain.entity.UserEntity;
 
 @Service
@@ -17,7 +18,7 @@ public class DataRepository {
         this.delAllData = delAllData;
     }
 
-    public AnswerDeleteAllData deleteAllData(String deleteKey){
+    public DeleteAllDataAnswer deleteAllData(String deleteKey){
         return delAllData.deleteAllFiles(deleteKey);
     }
 
