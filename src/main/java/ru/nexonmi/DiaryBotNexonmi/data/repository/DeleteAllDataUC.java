@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-class DeleteAllData {
+class DeleteAllDataUC {
 
     @Value("${storage.location}")
     private String ROOT_LOCATION;

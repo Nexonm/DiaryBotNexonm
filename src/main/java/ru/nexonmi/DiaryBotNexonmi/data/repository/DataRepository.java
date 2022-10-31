@@ -10,9 +10,9 @@ public class DataRepository {
 
     private final UserDataGet udGet;
     private final UserDataSave udSave;
-    private final DeleteAllData delAllData;
+    private final DeleteAllDataUC delAllData;
 
-    public DataRepository(UserDataGet udGet, UserDataSave udSave, DeleteAllData delAllData) {
+    public DataRepository(UserDataGet udGet, UserDataSave udSave, DeleteAllDataUC delAllData) {
         this.udGet = udGet;
         this.udSave = udSave;
         this.delAllData = delAllData;
