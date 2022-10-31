@@ -13,7 +13,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Service
+
 class DeleteAllDataUC {
 
     @Value("${storage.location}")
@@ -28,7 +28,7 @@ class DeleteAllDataUC {
         if(!DELETE_KEY.equals(deleteKey)) return new DeleteAllDataAnswer(false);
         DeleteAllDataAnswer answer = new DeleteAllDataAnswer(true);
         LinkedList<File> files = new LinkedList<>(getAllFilesInStorage());
-//        answer.setNumOfFoundFiles(files.size());
+        answer.setNumOfFoundFiles(files.size());
         int numOfGroupFiles = 0;
         int numOfUserFiles = 0;
         int numOfDeletedFiles = 0;
