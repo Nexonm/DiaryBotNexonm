@@ -1,7 +1,6 @@
 package ru.nexonmi.DiaryBotNexonmi.data.answer;
 
 import com.google.gson.Gson;
-import lombok.Getter;
 import lombok.Setter;
 
 public class DeleteAllDataAnswer {
