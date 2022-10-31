@@ -27,6 +27,18 @@ public class DataController {
         }catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
+    }
 
+    @PostMapping("/getlistoffiles/bykey/*****")
+    public ResponseEntity getListOfFiles(
+            @RequestParam(name = "accessKey") String key
+    ) {
+        try {
+            return ResponseEntity.ok(
+                    dataService.getListOfFiles(key)
+            );
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 }

@@ -3,6 +3,7 @@ package ru.nexonmi.DiaryBotNexonmi.data.repository;
 
 import org.springframework.stereotype.Service;
 import ru.nexonmi.DiaryBotNexonmi.data.answer.DeleteAllDataAnswer;
+import ru.nexonmi.DiaryBotNexonmi.data.answer.GetListOfFilesAnswer;
 import ru.nexonmi.DiaryBotNexonmi.data.usecases.UseCaseFacade;
 import ru.nexonmi.DiaryBotNexonmi.domain.entity.UserEntity;
 
@@ -21,6 +22,10 @@ public class DataRepository {
 
     public DeleteAllDataAnswer deleteAllData(String deleteKey){
         return UCFacade.deleteAllData(deleteKey);
+    }
+
+    public GetListOfFilesAnswer getListOfFiles(String accessKey){
+        return UCFacade.getListOfFiles(accessKey);
     }
 
     public void save(UserEntity user) {
