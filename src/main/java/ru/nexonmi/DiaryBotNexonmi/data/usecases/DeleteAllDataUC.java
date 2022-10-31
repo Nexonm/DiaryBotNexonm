@@ -1,4 +1,4 @@
-package ru.nexonmi.DiaryBotNexonmi.data.repository;
+package ru.nexonmi.DiaryBotNexonmi.data.usecases;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
