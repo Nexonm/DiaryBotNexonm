@@ -6,12 +6,13 @@ import lombok.Setter;
 
 public class DeleteAllDataAnswer {
 
-    @Getter @Setter private int numOfFoundFiles;
-    @Getter @Setter private int numOfDeletedFiles;
-    @Getter @Setter private int numOfGroupFiles;
-    @Getter @Setter private int numOfUserFiles;
-    @Getter @Setter private int numOfExceptionOccurred;
+    //main field, true -> files were deleted, false -> incorrect key, files cannot be deleted
     private final boolean deleteKeyAccepted;
+    @Setter private int numOfFoundFiles;
+    @Setter private int numOfDeletedFiles;
+    @Setter private int numOfGroupFiles;
+    @Setter private int numOfUserFiles;
+    @Setter private int numOfExceptionOccurred;
 
     public DeleteAllDataAnswer(boolean deleteKeyAccepted){
         this.deleteKeyAccepted = deleteKeyAccepted;
