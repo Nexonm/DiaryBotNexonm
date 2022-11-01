@@ -3,6 +3,7 @@ package ru.nexonmi.DiaryBotNexonmi.data.service;
 import com.google.gson.Gson;
 import org.springframework.stereotype.Service;
 import ru.nexonmi.DiaryBotNexonmi.data.answer.DeleteAllDataAnswer;
+import ru.nexonmi.DiaryBotNexonmi.data.answer.GetFileDataByFileNameAnswer;
 import ru.nexonmi.DiaryBotNexonmi.data.answer.GetListOfFilesAnswer;
 import ru.nexonmi.DiaryBotNexonmi.data.repository.DataRepository;
 
@@ -21,5 +22,9 @@ public class DataService {
 
     public String getListOfFiles(String accessKey){
         return (new Gson()).toJson(repository.getListOfFiles(accessKey), GetListOfFilesAnswer.class);
+    }
+
+    public String getFileDataByFileName(String accessKey, String filename){
+        return (new Gson()).toJson(repository.getFileDataByFileName(accessKey, filename), GetFileDataByFileNameAnswer.class);
     }
 }

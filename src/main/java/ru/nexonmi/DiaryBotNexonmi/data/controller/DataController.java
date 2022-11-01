@@ -41,4 +41,18 @@ public class DataController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+    @PostMapping("/getfiledatabyfilename/bykey/*****")
+    public ResponseEntity getFileDataByFileName(
+            @RequestParam(name = "accessKey") String key,
+            @RequestParam(name = "fileName") String fileName
+    ) {
+        try {
+            return ResponseEntity.ok(
+                    dataService.getFileDataByFileName(key, fileName)
+            );
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 }
