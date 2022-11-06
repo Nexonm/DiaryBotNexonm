@@ -70,4 +70,19 @@ public class DataController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+    @PostMapping("/uploaddatatofilebyfilename/bykey/*****")
+    public ResponseEntity uploadDataToFileByFileName(
+            @RequestParam(name = "accessKey") String key,
+            @RequestParam(name = "fileName") String fileName,
+            @RequestParam(name = "fileData") String fileData
+    ) {
+        try {
+            return ResponseEntity.ok(
+                    dataService.uploadDataToFileByFileName(key, fileName, fileData)
+            );
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 }

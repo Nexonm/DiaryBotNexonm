@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.nexonmi.DiaryBotNexonmi.data.answer.DeleteAllDataAnswer;
 import ru.nexonmi.DiaryBotNexonmi.data.answer.GetFileDataByFileNameAnswer;
 import ru.nexonmi.DiaryBotNexonmi.data.answer.GetListOfFilesAnswer;
+import ru.nexonmi.DiaryBotNexonmi.data.answer.UploadDataToFileByFileNameAnswer;
 import ru.nexonmi.DiaryBotNexonmi.data.repository.DataRepository;
 
 @Service
@@ -30,5 +31,9 @@ public class DataService {
 
     public String uploadFile(String accessKey, String fileName, String fileData) {
         return repository.uploadFile(accessKey, fileName, fileData).toString();
+    }
+
+    public String uploadDataToFileByFileName(String accessKey, String fileName, String fileData){
+        return repository.uploadDataToFileByFileName(accessKey, fileName, fileData).toString();
     }
 }
