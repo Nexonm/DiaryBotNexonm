@@ -27,4 +27,8 @@ public class DataService {
     public String getFileDataByFileName(String accessKey, String filename){
         return (new Gson()).toJson(repository.getFileDataByFileName(accessKey, filename), GetFileDataByFileNameAnswer.class);
     }
+
+    public String uploadFile(String accessKey, String fileName, String fileData) {
+        return repository.uploadFile(accessKey, fileName, fileData).toString();
+    }
 }

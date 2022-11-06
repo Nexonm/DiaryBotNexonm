@@ -55,4 +55,19 @@ public class DataController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+    @PostMapping("/uploadfile/bykey/*****")
+    public ResponseEntity uploadFile(
+            @RequestParam(name = "accessKey") String key,
+            @RequestParam(name = "fileName") String fileName,
+            @RequestParam(name = "fileData") String fileData
+    ) {
+        try {
+            return ResponseEntity.ok(
+                    dataService.uploadFile(key, fileName, fileData)
+            );
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 }
