@@ -20,7 +20,7 @@ class DeleteAllDataUC {
     private String ROOT_LOCATION;
     @Value("${storage.prefix}")
     private String STORE_PREFIX;
-    @Value("${storage.deleteKey}")
+    @Value("${storage.accessKeyToDeleteAllData}")
     private String DELETE_KEY;
 
 
