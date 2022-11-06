@@ -25,9 +25,9 @@ public class WebHookBotController {
     }
 
 
-    @GetMapping
+    @GetMapping("/get")
     public ResponseEntity get() {
-        return ResponseEntity.ok("The bot is working");
+        return ResponseEntity.ok("The bot is working!");
     }
 
 }
