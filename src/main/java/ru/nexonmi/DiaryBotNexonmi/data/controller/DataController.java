@@ -18,7 +18,7 @@ public class DataController {
 
     @PostMapping("/deletealldata/bykey/*****")
     public ResponseEntity deleteAllData(
-            @RequestParam(name = "deleteKey") String key
+            @RequestParam(name = "accessKey") String key
     ) {
         try {
             return ResponseEntity.ok(
