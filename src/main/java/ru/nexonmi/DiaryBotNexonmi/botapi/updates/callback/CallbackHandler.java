@@ -44,10 +44,12 @@ public class CallbackHandler {
     }
 
     public BotApiMethod<?> handleUpdate(CallbackQuery callback){
+        System.out.println("Callback: "+ callback.getMessage().getChat().getFirstName());
         for (String command : callbackMap.keySet()){
-            System.out.printf("The command: %s, the message.text: %s, the result: %b\n",
-                    command, callback.getData(),
-                    callback.getData().startsWith(command));
+//            System.out.printf("The command: %s, the message.text: %s, the result: %b\n",
+//                    command, callback.getData(),
+//                    callback.getData().startsWith(command));
+
             if (callback.getData().startsWith(command))
                 return callbackMap.get(command).handleCallback(callback);
         }

@@ -54,9 +54,11 @@ public class MessageHandler implements GetUserInterface, SaveUserInterface {
 
 
     public BotApiMethod<?> handleMessage(Message message) {
+        System.out.println("Message: "+ message.getChat().getUserName());
         for (String command : messageMap.keySet()) {
-            System.out.printf("The command: %s, the message.text: %s, the result: %b\n",
-                    command, message.getText(), message.getText().startsWith(command));
+//            System.out.printf("The command: %s, the message.text: %s, the result: %b\n",
+//                    command, message.getText(), message.getText().startsWith(command));
+
             if (message.getText().startsWith(command)) {
                 resetUserState(message.getChatId());//make user state null so after new commands previous state in no mo valid
                 return messageMap.get(command).handleMessage(message);

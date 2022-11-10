@@ -33,7 +33,8 @@ public class StateHandler {
             if (ist.state == state)
                 return map.get(ist).handleState(message);
         }
-        return messageService.getReplyMessage(message.getChatId(),
-                "HI from state -|:8" + message.getText());
+        return null;
+//        return messageService.getReplyMessage(message.getChatId(),
+//                "HI from state -|:8" + message.getText());
     }
 }
