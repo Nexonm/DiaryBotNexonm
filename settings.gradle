@@ -1,7 +1,14 @@
 pluginManagement {
     repositories {
-        maven { url "https://plugins.gradle.org/m2/" }
         gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
     }
 }
 
