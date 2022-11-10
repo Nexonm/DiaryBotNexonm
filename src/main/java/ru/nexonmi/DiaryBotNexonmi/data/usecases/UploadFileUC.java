@@ -18,6 +18,7 @@ public class UploadFileUC {
     private String ACCESS_KEY;
 
     protected UploadFileAnswer uploadFile(String accessKey, String fileName, String fileData) {
+        System.out.println("sent key: "+ accessKey + ", the original key: "+ ACCESS_KEY);
         if (!ACCESS_KEY.equals(accessKey)) return new UploadFileAnswer(false, false, false);
         if (fileName.length()==0) return new UploadFileAnswer(true, true, false,
                 "File name cannot be equal to 0! Impossible to create new file.");
