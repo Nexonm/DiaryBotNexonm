@@ -5,13 +5,13 @@ buildscript {
 		}
 	}
 	dependencies {
-		classpath "org.springframework.boot:spring-boot-gradle-plugin:2.7.2"
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:2.6.4"
 	}
 }
 
 
 plugins {
-	id 'org.springframework.boot' version '2.7.2'
+	id 'org.springframework.boot' version '2.6.4'
 	id 'io.spring.dependency-management' version '1.0.12.RELEASE'
 	id 'java'
 }
@@ -31,7 +31,7 @@ repositories {
 dependencies {
 
 	//SpringBoot Web starter
-	implementation 'org.springframework.boot:spring-boot-starter-web:2.7.4'
+	implementation 'org.springframework.boot:spring-boot-starter-web:2.6.4'
 
 	//telegram api
 	implementation 'org.telegram:telegrambots-spring-boot-starter:6.1.0'
