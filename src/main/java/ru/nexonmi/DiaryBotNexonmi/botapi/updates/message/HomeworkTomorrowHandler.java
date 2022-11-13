@@ -28,10 +28,14 @@ public class HomeworkTomorrowHandler extends InputMessageHandler implements GetU
                     .append(":\n\n");
             for (int lesID : user.getDiary().getDays()[day -1 + 1].getLessonIDs()) {
                 LessonEntity lesson = user.getDiary().getUserLessons().get(lesID);
-                ansStr.append(lesson.getName())
-                        .append("\n-")
-                        .append(lesson.getHomework());
+                ansStr.append(lesson.getName());
+                if (lesson.getHomework().length()>0)   {
+                    ansStr.append("\n-")
+                            .append(lesson.getHomework());
+                }
+                ansStr.append("\n");
             }
+
             return messageService.getReplyMessage(
                     message.getChatId(),
                     ansStr.toString()
