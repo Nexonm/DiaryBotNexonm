@@ -29,7 +29,7 @@ public class UserDataSave {
     }
 
     private File createFileObject(long id) {
-        return new File(String.format("%s\\%s%s",
+        return new File(String.format("%s%s%s",
                 ROOT_LOCATION, STORE_PREFIX, String.valueOf(id)));
     }
 

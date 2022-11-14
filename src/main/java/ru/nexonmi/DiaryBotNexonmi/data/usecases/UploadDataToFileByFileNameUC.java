@@ -35,7 +35,7 @@ public class UploadDataToFileByFileNameUC {
     }
 
     private File createFileObject(String fileName) {
-        return new File(String.format("%s\\%s",
+        return new File(String.format("%s%s",
                 ROOT_LOCATION, fileName));
     }
 }
