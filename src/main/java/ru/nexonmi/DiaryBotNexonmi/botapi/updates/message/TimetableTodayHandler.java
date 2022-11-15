@@ -31,11 +31,10 @@ public class TimetableTodayHandler extends InputMessageHandler implements GetUse
                     .append(messageService.getRussianStringMonth(date.getMonth()+1))
                     .append(":\n\n");
             if (user.getDiary().getDays()[date.getDay()-1].getLessonIDs().size() == 0)
-                ansStr.append(messageService.getSourceText("replay.message.timetable_today.no_lessons"))
-                        .append(user.getDiary().getDays()[date.getDate()-1].getLessonIDs().toString());
+                ansStr.append(messageService.getSourceText("replay.message.timetable_today.no_lessons"));
             else
                 for (int lesID : user.getDiary().getDays()[date.getDay() - 1].getLessonIDs()) {
-                    ansStr.append(user.getDiary().getUserLessons().get(lesID).getName());
+                    ansStr.append(user.getDiary().getUserLessons().get(lesID).getName()).append("\n");
                 }
             return messageService.getReplyMessage(
                     message.getChatId(),
